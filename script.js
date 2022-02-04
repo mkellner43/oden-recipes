@@ -8,6 +8,16 @@ const resizeBtn = document.createElement('button');
 
 
 function createGrid (column, row) {
+  if(column > 100 || row > 100) {
+    column = 100;
+    row = 100;
+  } else if (column < 1 || row < 1) {
+    column = 16;
+    row = 16;
+  } else {
+    column = column;
+    row = row;
+  };
   for (let i = 0; i < column * row; i++) {
     const div = document.createElement('div');
     container.appendChild(div).classList.add('box');
@@ -115,7 +125,6 @@ function createNewGrid() {
       loadButtons();
     }
     forceReset(user);
-    console.log(user);
   });
   
 };
